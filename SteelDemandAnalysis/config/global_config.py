@@ -20,7 +20,11 @@ class GlobalConfig:
     steel_output_data = os.path.join(steel_data_path, '钢材产量.xlsx')  # 钢铁产量数据
     steel_stock_data = os.path.join(steel_data_path, '钢联数据-社会库存&钢厂库存.xls')  # 钢材库存数据
     steel_demand_data = os.path.join(steel_data_path, '表观需求.xlsx')  # 钢材需求数据
-    steel_demand_year_on_year_data = os.path.join(steel_data_path, '表观需求同比数据.csv')  # 钢材需求同比数据
+
+    steel_demand_year_on_year_data = os.path.join(steel_data_path, '表观需求同比数据.xlsx')  # 钢材需求同比数据
+    infrastructure_year_on_year_data = os.path.join(infrastructure_data_path, '基建需求同比数据.xlsx')  # 基建同比数据
+    manufacturing_year_on_year_data = os.path.join(machinery_data_path, '制造业需求同比数据.xlsx')  # 制造业同比数据
+    estate_year_on_year_data = os.path.join(estate_data_path, '房地产需求同比数据.xlsx')  # 房地产同比数据
 
     def __init__(self):
         pass
