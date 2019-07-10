@@ -37,5 +37,25 @@ def cal_steel_demand_year_on_year():
                            header=True, index=False, float_format=None)
 
 
+def steel_demand_year_on_year_data():
+    # 获取钢铁需求同比数据
+    # 返回值： array
+    #       时间：2013-01至2019-03
+    #       属性：需求同比数据
+    config = global_config.GlobalConfig()
+    steel_demand_year_on_year_df = pd.read_excel(config.steel_demand_year_on_year_data)
+    return steel_demand_year_on_year_df['同比增长'].values[12:-2]
+
+
+def steel_demand_cumulative_year_on_year_data():
+    # 获取钢铁需求累计同比数据
+    # 返回值： array
+    #       时间：2013-01至2019-03
+    #       属性：累计需求同比数据
+    config = global_config.GlobalConfig()
+    steel_demand_year_on_year_df = pd.read_excel(config.steel_demand_year_on_year_data)
+    return steel_demand_year_on_year_df['累计同比增长'].values[12:-2]
+
+
 if __name__ == '__main__':
-    cal_steel_demand_year_on_year()
+    pass
