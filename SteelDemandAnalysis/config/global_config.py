@@ -8,13 +8,13 @@ import os
 class GlobalConfig:
     basic_data_path = 'E:\\htsc\\行业景气度\\数据\\'   # 数据根目录
 
-    steel_data_path = os.path.join(basic_data_path, '钢铁-需求\\')  # 钢铁-需求
-    macro_data_path = os.path.join(basic_data_path, '钢铁-宏观指标\\')  # 钢铁-宏观指标
-    infrastructure_data_path = os.path.join(basic_data_path, '钢铁-需求-基建\\')  # 钢铁-需求-基建
-    manufacturing_data_path = os.path.join(basic_data_path, '钢铁-需求-制造业\\')  # 钢铁-需求-制造业
-    estate_data_path = os.path.join(basic_data_path, '钢铁-需求-房地产\\')  # 钢铁-需求-房地产
-    machinery_data_path = os.path.join(basic_data_path, '钢铁-需求-机械\\')  # 钢铁-需求-机械
-    homeAppAndCar_data_path = os.path.join(basic_data_path, '钢铁-需求-家电汽车\\')  # 钢铁-需求-家电汽车
+    steel_data_path = os.path.join(basic_data_path, '钢铁-需求\\')  # 钢铁-需求目录
+    macro_data_path = os.path.join(basic_data_path, '钢铁-宏观指标\\')  # 钢铁-宏观指标目录
+    infrastructure_data_path = os.path.join(basic_data_path, '钢铁-需求-基建\\')  # 钢铁-需求-基建目录
+    manufacturing_data_path = os.path.join(basic_data_path, '钢铁-需求-制造业\\')  # 钢铁-需求-制造业目录
+    estate_data_path = os.path.join(basic_data_path, '钢铁-需求-房地产\\')  # 钢铁-需求-房地产目录
+    machinery_data_path = os.path.join(basic_data_path, '钢铁-需求-机械\\')  # 钢铁-需求-机械目录
+    homeAppAndCar_data_path = os.path.join(basic_data_path, '钢铁-需求-家电汽车\\')  # 钢铁-需求-家电汽车目录
 
     steel_importAndExport_data = os.path.join(steel_data_path, '钢材进出口.xlsx')  # 钢铁进出口数据
     steel_output_data = os.path.join(steel_data_path, '钢材产量.xlsx')  # 钢铁产量数据
@@ -29,6 +29,9 @@ class GlobalConfig:
     macro_year_on_year_data = os.path.join(macro_data_path, '宏观指标同比数据.xlsx')  # 宏观指标同比数据
     machinery_year_on_year_data = os.path.join(machinery_data_path, '机械同比数据.xls')  # 机械同比数据
     homeAppAndCar_year_on_year_data = os.path.join(homeAppAndCar_data_path, '家电汽车同比数据.xls')  # 家电汽车同比数据
+
+    model_data_path = os.path.join(basic_data_path, '模型数据\\')  # 模型数据目录
+    model_data = os.path.join(model_data_path, 'model_data.dat')  # 模型数据
 
     def __init__(self):
         pass

@@ -7,7 +7,7 @@ import pandas as pd
 from config import global_config
 
 
-def estate_cumulative_year_on_year_data():
+def manufacturing_cumulative_year_on_year_data():
     # 获取制造业累计同比数据
     # 返回值：dataFrame
     #       时间：2012-01至2019-03
