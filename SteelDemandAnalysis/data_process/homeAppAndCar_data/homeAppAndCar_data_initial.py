@@ -4,7 +4,7 @@ Description: 进行家电汽车数据处理
 """
 
 import pandas as pd
-from config import global_config
+from config import path_config
 
 
 def homeAppAndCar_cumulative_year_on_year_data():
@@ -16,13 +16,14 @@ def homeAppAndCar_cumulative_year_on_year_data():
     #               产量:空调:累计同比（月）
     #               产量:汽车:累计同比（月）
     #               销量:汽车:累计同比（月）
-    config = global_config.GlobalConfig()
+    config = path_config.GlobalConfig()
     data_path = config.homeAppAndCar_year_on_year_data
-    estate_year_on_year_df = pd.read_excel(data_path)
-    return estate_year_on_year_df[
+    homeAppAndCar_cumulative_year_on_year_df = pd.read_excel(data_path)
+    homeAppAndCar_cumulative_year_on_year_df.set_index('时间', inplace=True)
+    return homeAppAndCar_cumulative_year_on_year_df[
                ['产量:家用电冰箱:累计同比（月）', '产量:家用洗衣机:累计同比（月）',
                 '产量:空调:累计同比（月）', '产量:汽车:累计同比（月）',
-                '销量:汽车:累计同比（月）']].loc[:86].reset_index(drop=True)
+                '销量:汽车:累计同比（月）']].loc['2013-01':'2019-03']
 
 
 if __name__ == '__main__':

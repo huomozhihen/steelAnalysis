@@ -31,7 +31,11 @@ class GlobalConfig:
     homeAppAndCar_year_on_year_data = os.path.join(homeAppAndCar_data_path, '家电汽车同比数据.xls')  # 家电汽车同比数据
 
     model_data_path = os.path.join(basic_data_path, '模型数据\\')  # 模型数据目录
-    model_data = os.path.join(model_data_path, 'model_data.dat')  # 模型数据
+    attr_intro = os.path.join(model_data_path, 'attr_intro')  # 属性介绍
+    initial_model_data = os.path.join(model_data_path, 'initial_model_data.dat')  # 原始数据
+    converted_model_data = os.path.join(model_data_path, 'converted_model_data.dat')  # 模型数据
+    train_data = os.path.join(model_data_path, 'train_data.dat')  # 训练数据
+    test_data = os.path.join(model_data_path, 'test_data.dat')  # 测试数据
 
     def __init__(self):
         pass
