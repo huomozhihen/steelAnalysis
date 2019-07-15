@@ -5,9 +5,9 @@ Description: 数据集转换
 
 import pandas as pd
 import datetime
-from config import path_config
+from config import global_config
 
-config = path_config.GlobalConfig
+path_config = global_config.PathConfig
 
 
 def add_month_index(old_df):
@@ -25,7 +25,7 @@ def add_month_index(old_df):
 
 
 if __name__ == '__main__':
-    f = open(config.initial_model_data)
+    f = open(path_config.initial_model_data)
     old_data_df = pd.read_csv(f, header=0, index_col=0)
     new_data_df = add_month_index(old_data_df)
-    new_data_df.to_csv(config.converted_model_data, sep=',', header=True, index=True)
+    new_data_df.to_csv(path_config.converted_model_data, sep=',', header=True, index=True)

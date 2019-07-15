@@ -11,11 +11,13 @@ from data_process.macro_data import macro_data_initial
 from data_process.manufacturing_data import manufacturing_data_initial
 from data_process.steel_demand_data import steel_demand_data_initial
 from data_process.util import correlation_analysis
-from config import path_config
+from config import global_config
 import pandas as pd
 
-MAX_PERIOD = 12
-config = path_config.GlobalConfig()
+path_config = global_config.PathConfig()
+param_config = global_config.ParamConfig
+MAX_PERIOD = param_config.corr_max_period
+PREDICT_PERIOD = param_config.predict_period
 
 
 def initial_label_data():
@@ -24,6 +26,8 @@ def initial_label_data():
     #       label_df: 标签数据dataFrame
     label_df = steel_demand_data_initial.steel_demand_year_on_year_data()
     # label_df = steel_demand_data_initial.steel_demand_cumulative_year_on_year_data()
+    # label_df = steel_demand_data_initial.steel_demand_data()
+    # label_df = steel_demand_data_initial.steel_demand_cumulative_data()
     return label_df
 
 
@@ -70,9 +74,9 @@ def cal_period_record(basic_df, variable_df):
     for attr_name in attribute_list:
         attr_data = variable_df[attr_name].values
         corr_period, r2 = correlation_analysis.best_period(basic_data_array, attr_data, MAX_PERIOD)
-        if corr_period > 0:
+        if corr_period >= PREDICT_PERIOD:
             period_record[attr_name] = (corr_period, r2)
-    with open(config.attr_intro, 'w') as f:
+    with open(path_config.attr_intro, 'w') as f:
         for k, v in period_record.items():
             f.write(k + ':' + str(v) + '\n')
     return period_record
@@ -118,4 +122,4 @@ if __name__ == '__main__':
     # 存储数据
     selected_label_df.reset_index(inplace=True)
     model_data = pd.concat([selected_attr_df, selected_label_df], axis=1).set_index('时间')
-    model_data.to_csv(config.initial_model_data, sep=',', header=True, index=True)
+    model_data.to_csv(path_config.initial_model_data, sep=',', header=True, index=True)

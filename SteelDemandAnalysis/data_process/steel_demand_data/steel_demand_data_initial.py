@@ -4,14 +4,15 @@ Description: 进行钢铁需求数据处理
 """
 
 import pandas as pd
-from config import path_config
+from config import global_config
+
+path_config = global_config.PathConfig()
+param_config = global_config.ParamConfig()
 
 
 def cal_steel_demand_year_on_year():
     # 计算钢铁需求同比增长、累计同比增长
-    config = path_config.GlobalConfig()
-
-    steel_demand_data_path = config.steel_demand_data
+    steel_demand_data_path = path_config.steel_demand_data
     steel_demand_df = pd.read_excel(steel_demand_data_path)
     steel_demand_df.index.name = '时间'
     steel_demand_df.reset_index(inplace=True)
@@ -33,30 +34,44 @@ def cal_steel_demand_year_on_year():
     steel_demand_df['同比增长'] = pd.Series(steel_demand_year_on_year_list)
     steel_demand_df['累计同比增长'] = pd.Series(steel_demand_cumulative_year_on_year_list)
 
-    steel_demand_df.to_excel(config.steel_demand_year_on_year_data,
+    steel_demand_df.to_excel(path_config.steel_demand_year_on_year_data,
                            header=True, index=False, float_format=None)
 
 
 def steel_demand_year_on_year_data():
     # 获取钢铁需求同比数据
     # 返回值： dataFrame
-    #       时间：2013-01至2019-03
     #       属性：需求同比数据
-    config = path_config.GlobalConfig()
-    steel_demand_year_on_year_df = pd.read_excel(config.steel_demand_year_on_year_data)
+    steel_demand_year_on_year_df = pd.read_excel(path_config.steel_demand_year_on_year_data)
     steel_demand_year_on_year_df.set_index('时间', inplace=True)
-    return steel_demand_year_on_year_df[['同比增长']].loc['2013-01':'2019-03']
+    return steel_demand_year_on_year_df[['同比增长']].loc[param_config.begin_time:param_config.end_time]
 
 
 def steel_demand_cumulative_year_on_year_data():
     # 获取钢铁需求累计同比数据
     # 返回值： dataFrame
-    #       时间：2013-01至2019-03
     #       属性：累计需求同比数据
-    config = path_config.GlobalConfig()
-    steel_demand_cumulative_year_on_year_df = pd.read_excel(config.steel_demand_year_on_year_data)
+    steel_demand_cumulative_year_on_year_df = pd.read_excel(path_config.steel_demand_year_on_year_data)
     steel_demand_cumulative_year_on_year_df.set_index('时间', inplace=True)
-    return steel_demand_cumulative_year_on_year_df[['累计同比增长']].loc['2013-01':'2019-03']
+    return steel_demand_cumulative_year_on_year_df[['累计同比增长']].loc[param_config.begin_time:param_config.end_time]
+
+
+def steel_demand_data():
+    # 获取钢铁需求数据
+    # 返回值： dataFrame
+    #       属性：需求数据
+    steel_demand_df = pd.read_excel(path_config.steel_demand_year_on_year_data)
+    steel_demand_df.set_index('时间', inplace=True)
+    return steel_demand_df[['表观需求（万吨）']].loc[param_config.begin_time:param_config.end_time]
+
+
+def steel_demand_cumulative_data():
+    # 获取钢铁累计需求数据
+    # 返回值： dataFrame
+    #       属性：累计需求数据
+    steel_demand_cumulative_df = pd.read_excel(path_config.steel_demand_year_on_year_data)
+    steel_demand_cumulative_df.set_index('时间', inplace=True)
+    return steel_demand_cumulative_df[['累计表观需求（万吨）']].loc[param_config.begin_time:param_config.end_time]
 
 
 if __name__ == '__main__':

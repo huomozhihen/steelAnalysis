@@ -10,7 +10,7 @@ from sklearn.tree import ExtraTreeRegressor
 def extra_tree_regression():
     train_attr, train_label, test_attr, test_label = model_method.load_data()
 
-    model = ExtraTreeRegressor()
+    model = ExtraTreeRegressor(random_state=0)
     model.fit(train_attr, train_label)
 
     model_method.result_analysis(train_attr, train_label, test_attr, test_label, model)

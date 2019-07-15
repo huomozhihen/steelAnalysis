@@ -3,14 +3,14 @@ Time： 2019-7-112
 Description： 一些通用方法
 """
 
-from config import path_config
+from config import global_config
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.metrics import mean_absolute_error
 from sklearn.metrics import mean_squared_error
 
-config = path_config.GlobalConfig()
+config = global_config.PathConfig()
 
 
 def load_data():

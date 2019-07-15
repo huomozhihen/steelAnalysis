@@ -5,8 +5,8 @@ Description： 用于数据路径配置
 import os
 
 
-class GlobalConfig:
-    basic_data_path = 'E:\\htsc\\行业景气度\\数据\\'   # 数据根目录
+class PathConfig:
+    basic_data_path = 'E:\\htsc\\行业景气度\\数据\\'  # 数据根目录
 
     steel_data_path = os.path.join(basic_data_path, '钢铁-需求\\')  # 钢铁-需求目录
     macro_data_path = os.path.join(basic_data_path, '钢铁-宏观指标\\')  # 钢铁-宏观指标目录
@@ -36,6 +36,14 @@ class GlobalConfig:
     converted_model_data = os.path.join(model_data_path, 'converted_model_data.dat')  # 模型数据
     train_data = os.path.join(model_data_path, 'train_data.dat')  # 训练数据
     test_data = os.path.join(model_data_path, 'test_data.dat')  # 测试数据
+
+
+class ParamConfig:
+    predict_period = 1
+    begin_time = '2006-01'
+    end_time = '2019-2'
+    corr_max_period = 20
+    test_period = 1
 
     def __init__(self):
         pass
