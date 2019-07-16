@@ -37,13 +37,21 @@ class PathConfig:
     train_data = os.path.join(model_data_path, 'train_data.dat')  # 训练数据
     test_data = os.path.join(model_data_path, 'test_data.dat')  # 测试数据
 
+    def _init__(self):
+        pass
+
 
 class ParamConfig:
-    predict_period = 1
-    begin_time = '2006-01'
-    end_time = '2019-2'
-    corr_max_period = 20
-    test_period = 1
 
-    def __init__(self):
-        pass
+    def __init__(self, predict_period=1, begin_time='2006-01', end_time='2019-03', corr_max_period=12, test_period=12):
+        self.predict_period = predict_period
+        self.begin_time = begin_time
+        self.end_time = end_time
+        self.corr_max_period = corr_max_period
+        self.test_period = test_period
+
+    def set_begin_time(self, begin_time):
+        self.begin_time = begin_time
+
+    def set_end_time(self, end_time):
+        self.end_time = end_time
