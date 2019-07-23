@@ -21,8 +21,13 @@ class Infrastruture:
         data_path = self.path_config.infrastructure_year_on_year_data
         infrastructure_cumulative_year_on_year_df = pd.read_excel(data_path)
         infrastructure_cumulative_year_on_year_df.set_index('时间', inplace=True)
-        return infrastructure_cumulative_year_on_year_df[['固定资产投资完成额:累计同比', '固定资产投资完成额:基础设施建设投资:累计同比']].loc[
-               self.param_config.begin_time:self.param_config.end_time]
+        if self.param_config.begin_time >= '2014-01':
+            return infrastructure_cumulative_year_on_year_df[
+                       ['固定资产投资完成额:累计同比', '固定资产投资完成额:基础设施建设投资:累计同比', '固定资产投资完成额:基础设施建设投资(不含电力):累计同比']].loc[
+                   self.param_config.begin_time:self.param_config.end_time]
+        else:
+            return infrastructure_cumulative_year_on_year_df[['固定资产投资完成额:累计同比', '固定资产投资完成额:基础设施建设投资:累计同比']].loc[
+                   self.param_config.begin_time:self.param_config.end_time]
 
 
 if __name__ == '__main__':

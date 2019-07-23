@@ -7,14 +7,16 @@ from model.com_mod import model_method
 import lightgbm as lgb
 
 
-def lightGBM_regression():
-    train_attr, train_label, test_attr, test_label = model_method.load_data()
+class MyLightGBM:
+    def __init__(self):
+        pass
 
-    model = lgb.LGBMRegressor(objective='regression')
-    model.fit(train_attr, train_label)
+    def lightGBM_regression(self, train_attr, train_label):
+        model = lgb.LGBMRegressor()
+        model.fit(train_attr, train_label)
 
-    model_method.result_analysis(train_attr, train_label, test_attr, test_label, model)
+        return model
 
 
 if __name__ == '__main__':
-    lightGBM_regression()
+    pass

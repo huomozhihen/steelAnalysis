@@ -28,10 +28,10 @@ class FeatureCorrelationAnalysis:
         # 返回：
         #       label_df: 标签数据dataFrame
         steel_demand = steel_demand_data_initial.SteelDemand(self.path_config, self.param_config)
-        label_df = steel_demand.steel_demand_year_on_year_data()
-        # label_df = steel_demand.steel_demand_cumulative_year_on_year_data()
-        # label_df = steel_demand.steel_demand_data()
-        # label_df = steel_demand.steel_demand_cumulative_data()
+        if self.param_config.data_type == 1:
+            label_df = steel_demand.steel_demand_year_on_year_data()
+        else:
+            label_df = steel_demand.steel_demand_cumulative_year_on_year_data()
         return label_df
 
     def initial_attr_data(self):
@@ -49,7 +49,6 @@ class FeatureCorrelationAnalysis:
         infrastructure_cumulative_year_on_year_data = infrastructure.infrastructure_cumulative_year_on_year_data()
 
         machinery = machinery_data_initial.Machinery(self.path_config, self.param_config)
-        machinery_year_on_year_data = machinery.machinery_year_on_year_data()
         machinery_cumulative_year_on_year_data = machinery.machinery_cumulative_year_on_year_data()
 
         macro = macro_data_initial.Macro(self.path_config, self.param_config)
@@ -64,7 +63,7 @@ class FeatureCorrelationAnalysis:
         feature_df = pd.concat([estate_year_on_year_data, estate_cumulative_year_on_year_data,
                                 homeAppAndCar_cumulative_year_on_year_data,
                                 infrastructure_cumulative_year_on_year_data,
-                                machinery_year_on_year_data, machinery_cumulative_year_on_year_data,
+                                machinery_cumulative_year_on_year_data,
                                 BDI_data, PMI_data, macro_year_on_year_data, macro_cumulative_year_on_year_data,
                                 manufacturing_cumulative_year_on_year_data], axis=1)
         return feature_df
@@ -86,7 +85,7 @@ class FeatureCorrelationAnalysis:
                 period_record[attr_name] = (corr_period, r2)
         with open(self.path_config.attr_intro, 'w') as f:
             for k, v in period_record.items():
-                f.write(k + ':' + str(v) + '\n')
+                f.write(k + ' ' + str(v[0]) + '\n')
         return period_record
 
     def selected_attr(self, feature_df, period_record):

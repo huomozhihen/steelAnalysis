@@ -27,7 +27,7 @@ class PathConfig:
     estate_year_on_year_data = os.path.join(estate_data_path, '房地产需求同比数据.xlsx')  # 房地产同比数据
     BDI_data = os.path.join(macro_data_path, 'BDI.xlsx')  # BDI数据
     macro_year_on_year_data = os.path.join(macro_data_path, '宏观指标同比数据.xlsx')  # 宏观指标同比数据
-    machinery_year_on_year_data = os.path.join(machinery_data_path, '机械同比数据.xls')  # 机械同比数据
+    machinery_year_on_year_data = os.path.join(machinery_data_path, '机械同比数据.xlsx')  # 机械同比数据
     homeAppAndCar_year_on_year_data = os.path.join(homeAppAndCar_data_path, '家电汽车同比数据.xls')  # 家电汽车同比数据
 
     model_data_path = os.path.join(basic_data_path, '模型数据\\')  # 模型数据目录
@@ -43,15 +43,9 @@ class PathConfig:
 
 class ParamConfig:
 
-    def __init__(self, predict_period=1, begin_time='2006-01', end_time='2019-03', corr_max_period=12, test_period=12):
+    def __init__(self, predict_period=1, begin_time='2006-01', end_time='2019-05', corr_max_period=12, data_type=1):
         self.predict_period = predict_period
         self.begin_time = begin_time
         self.end_time = end_time
         self.corr_max_period = corr_max_period
-        self.test_period = test_period
-
-    def set_begin_time(self, begin_time):
-        self.begin_time = begin_time
-
-    def set_end_time(self, end_time):
-        self.end_time = end_time
+        self.data_type = data_type

@@ -3,18 +3,18 @@ Time： 2019-7-11
 Description： 线性回归
 """
 
-from model.com_mod import model_method
+from model.com_mod import model_method, data_partitioning
 from sklearn import linear_model
 
 
-def linear_regression():
-    train_attr, train_label, test_attr, test_label = model_method.load_data()
+class MyLinearRegression:
+    def __init__(self):
+        pass
 
-    model = linear_model.LinearRegression()
-    model.fit(train_attr, train_label)
+    def linear_regression(self, attr, label):
+        model = linear_model.LinearRegression()
+        model.fit(attr, label)
+        return model
 
-    model_method.result_analysis(train_attr, train_label, test_attr, test_label, model)
-
-
-if __name__ == '__main__':
-    linear_regression()
+    if __name__ == '__main__':
+        pass

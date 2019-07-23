@@ -14,7 +14,7 @@ class DataCoversion:
         self.path_config = path_config
         self.param_config = param_config
 
-    def add_month_index(old_df):
+    def add_month_index(self, old_df):
         # 数据集添加月份属性
         # 输入：
         #       old_df: 原数据dataFrame
@@ -27,11 +27,11 @@ class DataCoversion:
 
         return new_df
 
-    def scale_handler(old_df):
+    def scale_handler(self, old_df):
         # min_max特征缩放
         X_df = old_df.ix[:, :-1]
         Y_df = old_df.ix[:, [-1]]
-        scaler = preprocessing.MinMaxScaler()
+        scaler = preprocessing.StandardScaler()
         X_minmax = scaler.fit_transform(X_df)
 
         X_minmax_df = pd.DataFrame(X_minmax, index=X_df.index, columns=X_df.columns)
@@ -43,8 +43,8 @@ class DataCoversion:
         f = open(self.path_config.initial_model_data)
         old_data_df = pd.read_csv(f, header=0, index_col=0)
         new_data_df = old_data_df
-        # new_data_df = add_month_index(old_data_df)
-        # new_data_df = scale_handler(old_data_df)
+        # new_data_df = self.add_month_index(old_data_df)
+        # new_data_df = self.scale_handler(old_data_df)
         new_data_df.to_csv(self.path_config.converted_model_data, sep=',', header=True, index=True)
 
 

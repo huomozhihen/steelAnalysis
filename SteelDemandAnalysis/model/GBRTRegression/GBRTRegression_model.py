@@ -7,14 +7,22 @@ from model.com_mod import model_method
 from sklearn import ensemble
 
 
-def GBRT_regression():
-    train_attr, train_label, test_attr, test_label = model_method.load_data()
+class MyGBRTRegression:
+    def __init__(self):
+        self.learning_rate = 0.1
+        self.n_estimators = 100
+        self.subsample = 1.0
+        self.min_samples_split = 2
+        self.max_depth = 3
 
-    model = ensemble.GradientBoostingRegressor()
-    model.fit(train_attr, train_label)
+    def GBRT_regression(self, train_attr, train_label):
+        model = ensemble.GradientBoostingRegressor(learning_rate=self.learning_rate, n_estimators=self.n_estimators,
+                                                   subsample=self.subsample, min_samples_leaf=self.min_samples_split,
+                                                   max_depth=self.max_depth)
+        model.fit(train_attr, train_label)
 
-    model_method.result_analysis(train_attr, train_label, test_attr, test_label, model)
+        return model
 
 
 if __name__ == '__main__':
-    GBRT_regression()
+    pass

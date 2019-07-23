@@ -3,18 +3,22 @@ Time： 2019-7-12
 Description： AdaBoost回归
 """
 
-from model.com_mod import model_method
 from sklearn import ensemble
 
 
-def AdaBoost_regression():
-    train_attr, train_label, test_attr, test_label = model_method.load_data()
+class MyAdaBoostRegression:
+    def __init__(self):
+        self.base_estimator = None,
+        self.n_estimators = 50,
+        self.learning_rate = 1.,
 
-    model = ensemble.AdaBoostRegressor()
-    model.fit(train_attr, train_label)
+    def AdaBoost_regression(self, train_attr, train_label):
+        model = ensemble.AdaBoostRegressor(base_estimator=self.base_estimator, n_estimators=self.n_estimators,
+                                           learning_rate=self.learning_rate)
+        model.fit(train_attr, train_label)
 
-    model_method.result_analysis(train_attr, train_label, test_attr, test_label, model)
+        return model
 
 
 if __name__ == '__main__':
-    AdaBoost_regression()
+    pass

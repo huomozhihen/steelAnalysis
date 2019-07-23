@@ -27,7 +27,16 @@ class Manufacturing:
         data_path = self.path_config.manufacturing_year_on_year_data
         manufacturing_cumulative_year_on_year_df = pd.read_excel(data_path)
         manufacturing_cumulative_year_on_year_df.set_index('时间',inplace=True)
-        return manufacturing_cumulative_year_on_year_df[
+        if self.param_config.begin_time >= '2012-01':
+            return  manufacturing_cumulative_year_on_year_df[
+                   ['固定资产投资完成额:制造业:累计同比', '固定资产投资完成额:黑色金属矿采选业:累计同比',
+                    '固定资产投资完成额:制造业:金属制品业:累计同比', '固定资产投资完成额:制造业:黑色金属冶炼及压延加工业:累计同比',
+                    '固定资产投资完成额:制造业:通用设备制造业:累计同比', '固定资产投资完成额:制造业:专用设备制造业:累计同比',
+                    '固定资产投资完成额:制造业:汽车制造业:累计同比', '固定资产投资完成额:制造业:铁路、船舶、航空航天和其他运输设备制造业:累计同比',
+                    '固定资产投资完成额:制造业:电气机械及器材制造业:累计同比', '固定资产投资完成额:制造业:仪器仪表制造业:累计同比',
+                    'PPI:全部工业品:累计同比']].loc[self.param_config.begin_time:self.param_config.end_time]
+        else:
+            return manufacturing_cumulative_year_on_year_df[
                    ['固定资产投资完成额:制造业:累计同比', '固定资产投资完成额:黑色金属矿采选业:累计同比',
                     '固定资产投资完成额:制造业:金属制品业:累计同比', '固定资产投资完成额:制造业:黑色金属冶炼及压延加工业:累计同比',
                     '固定资产投资完成额:制造业:通用设备制造业:累计同比', '固定资产投资完成额:制造业:专用设备制造业:累计同比',
