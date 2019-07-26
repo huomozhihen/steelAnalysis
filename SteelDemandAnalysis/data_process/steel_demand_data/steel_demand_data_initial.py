@@ -72,6 +72,46 @@ class SteelDemand:
         steel_demand_cumulative_df.set_index('时间', inplace=True)
         return steel_demand_cumulative_df[['累计表观需求（万吨）']].loc[self.param_config.begin_time:self.param_config.end_time]
 
+    def steel_output_data(self):
+        # 获取钢铁产量数据
+        # 返回值： dataFrame
+        #       属性：钢铁产量数据
+        steel_demand_cumulative_df = pd.read_excel(self.path_config.steel_demand_year_on_year_data)
+        steel_demand_cumulative_df.set_index('时间', inplace=True)
+        return steel_demand_cumulative_df[['产量（万吨）']].loc[self.param_config.begin_time:self.param_config.end_time]
+
+    def steel_import_data(self):
+        # 获取钢铁进口数据
+        # 返回值： dataFrame
+        #       属性：钢铁进口数据
+        steel_demand_cumulative_df = pd.read_excel(self.path_config.steel_demand_year_on_year_data)
+        steel_demand_cumulative_df.set_index('时间', inplace=True)
+        return steel_demand_cumulative_df[['进口（万吨）']].loc[self.param_config.begin_time:self.param_config.end_time]
+
+    def steel_export_data(self):
+        # 获取钢铁出口数据
+        # 返回值： dataFrame
+        #       属性：钢铁出口数据
+        steel_demand_cumulative_df = pd.read_excel(self.path_config.steel_demand_year_on_year_data)
+        steel_demand_cumulative_df.set_index('时间', inplace=True)
+        return steel_demand_cumulative_df[['出口（万吨）']].loc[self.param_config.begin_time:self.param_config.end_time]
+
+    def steel_export_data(self):
+        # 获取钢铁出口数据
+        # 返回值： dataFrame
+        #       属性：钢铁出口数据
+        steel_demand_cumulative_df = pd.read_excel(self.path_config.steel_demand_year_on_year_data)
+        steel_demand_cumulative_df.set_index('时间', inplace=True)
+        return steel_demand_cumulative_df[['出口（万吨）']].loc[self.param_config.begin_time:self.param_config.end_time]
+
+    def steel_storage_data(self):
+        # 获取钢铁库存数据
+        # 返回值： dataFrame
+        #       属性：钢铁库存数据
+        steel_demand_cumulative_df = pd.read_excel(self.path_config.steel_demand_year_on_year_data)
+        steel_demand_cumulative_df.set_index('时间', inplace=True)
+        return steel_demand_cumulative_df[['库存变化（万吨）']].loc[self.param_config.begin_time:self.param_config.end_time]
+
 
 if __name__ == '__main__':
-    SteelDemand.cal_steel_demand_year_on_year()
+    SteelDemand().cal_steel_demand_year_on_year()

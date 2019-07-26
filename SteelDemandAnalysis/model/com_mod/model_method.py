@@ -48,7 +48,7 @@ def test_mse(test_attr, test_label, model):
 
 
 def draw_picture(ground_truth, predict):
-    plt.figure(figsize=(22, 10), dpi=60)
+    plt.figure()
     plt.plot(ground_truth, 'o--', color="blue", label='ground_truth')
     plt.plot(predict, 'o--', color='red', label='predict')
     plt.legend(loc='best')

@@ -13,9 +13,9 @@ from data_process.feature import data_coversion
 class MyRandomForestRegression:
     def __init__(self):
         self.n_estimators = 100
-        self.max_depth = None
+        self.max_depth = 4
         self.min_samples_split = 2
-        self.min_samples_leaf = 1
+        self.min_samples_leaf = 3
 
     def random_forest_regression(self, train_attr, train_label):
 

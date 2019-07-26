@@ -13,7 +13,7 @@ from sklearn.model_selection import GridSearchCV
 
 class MyDecisionTreeRegression:
     def __init__(self):
-        self.max_depth = 3
+        self.max_depth = 4
         self.min_samples_leaf = 2
         self.min_samples_split = 3
 

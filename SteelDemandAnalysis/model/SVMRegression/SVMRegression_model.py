@@ -13,9 +13,9 @@ from sklearn.model_selection import GridSearchCV
 
 class MySVMRegression:
     def __init__(self):
-        self.C = 1.0
-        self.degree = 3
-        self.gamma = 'auto_deprecated'
+        self.C = 1
+        self.degree = 10
+        self.gamma = 'auto'
 
     def svm_regression(self, train_attr, train_label):
 

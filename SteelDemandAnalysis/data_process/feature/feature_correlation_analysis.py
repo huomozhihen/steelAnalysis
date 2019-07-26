@@ -30,8 +30,12 @@ class FeatureCorrelationAnalysis:
         steel_demand = steel_demand_data_initial.SteelDemand(self.path_config, self.param_config)
         if self.param_config.data_type == 1:
             label_df = steel_demand.steel_demand_year_on_year_data()
-        else:
+        elif self.param_config.data_type == 2:
             label_df = steel_demand.steel_demand_cumulative_year_on_year_data()
+        elif self.param_config.data_type == 3:
+            label_df = steel_demand.steel_demand_data()
+        else:
+            label_df = steel_demand.steel_demand_cumulative_data()
         return label_df
 
     def initial_attr_data(self):
