@@ -3,11 +3,11 @@ Time： 2019-7-12
 Description： Bagging回归
 """
 
-from model.com_mod import model_method, data_partitioning
+from SteelDemandAnalysis.model.com_mod import model_method, data_partitioning
 from sklearn import ensemble
-from data_process.feature import feature_correlation_analysis
-from data_process.feature import data_coversion
-from config import global_config
+from SteelDemandAnalysis.data_process.feature import feature_correlation_analysis
+from SteelDemandAnalysis.data_process.feature import data_coversion
+from SteelDemandAnalysis.config import global_config
 
 
 class MyBaggingRegression:

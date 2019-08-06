@@ -1,10 +1,10 @@
-from data_process.feature import feature_correlation_analysis
-from data_process.feature import data_coversion
-from model.com_mod import data_partitioning
-from config import global_config
+from SteelDemandAnalysis.data_process.feature import feature_correlation_analysis
+from SteelDemandAnalysis.data_process.feature import data_coversion
+from SteelDemandAnalysis.model.com_mod import data_partitioning
+from SteelDemandAnalysis.config import global_config
 import datetime
 import dateutil.relativedelta
-from model.BaggingRegression import BaggingRegression_model
+from SteelDemandAnalysis.model.BaggingRegression import BaggingRegression_model
 import numpy as np
 
 

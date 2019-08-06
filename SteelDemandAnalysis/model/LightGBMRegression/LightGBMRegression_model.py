@@ -3,7 +3,7 @@ Time： 2019-7-12
 Description： lightGBM回归
 """
 
-from model.com_mod import model_method
+from SteelDemandAnalysis.model.com_mod import model_method
 import lightgbm as lgb
 
 

@@ -3,15 +3,15 @@ Time: 2019-7-10
 Description: 属性相关性分析
 """
 
-from data_process.estate_data import estate_data_initial
-from data_process.homeAppAndCar_data import homeAppAndCar_data_initial
-from data_process.infrastructure_data import infrastructure_data_initial
-from data_process.machinery_data import machinery_data_initial
-from data_process.macro_data import macro_data_initial
-from data_process.manufacturing_data import manufacturing_data_initial
-from data_process.steel_demand_data import steel_demand_data_initial
-from data_process.util import correlation_analysis
-from config import global_config
+from SteelDemandAnalysis.data_process.estate_data import estate_data_initial
+from SteelDemandAnalysis.data_process.homeAppAndCar_data import homeAppAndCar_data_initial
+from SteelDemandAnalysis.data_process.infrastructure_data import infrastructure_data_initial
+from SteelDemandAnalysis.data_process.machinery_data import machinery_data_initial
+from SteelDemandAnalysis.data_process.macro_data import macro_data_initial
+from SteelDemandAnalysis.data_process.manufacturing_data import manufacturing_data_initial
+from SteelDemandAnalysis.data_process.steel_demand_data import steel_demand_data_initial
+from SteelDemandAnalysis.data_process.util import correlation_analysis
+from SteelDemandAnalysis.config import global_config
 import pandas as pd
 
 

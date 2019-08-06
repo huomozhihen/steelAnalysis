@@ -4,7 +4,7 @@ Description: 进行机械数据处理
 """
 
 import pandas as pd
-from config import global_config
+from SteelDemandAnalysis.config import global_config
 
 
 class Machinery:

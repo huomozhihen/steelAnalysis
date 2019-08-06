@@ -2,21 +2,21 @@
 Time： 2019-7-16
 Description： 模型分析
 """
-from model.com_mod import data_partitioning, model_method
-from model.LinearRegression import LinearRegression_model
-from model.DecisionTreeRegression import DecisionTreeRegressor_model
-from model.SVMRegression import SVMRegression_model
-from model.RandomForestRegression import RandomForestRegression_model
-from model.AdaBoostRegression import AdaBoostRegression_model
-from model.GBRTRegression import GBRTRegression_model
-from model.XGBoostRegression import XGBoostRegression_model
-from model.BaggingRegression import BaggingRegression_model
-from data_process.feature import feature_correlation_analysis, data_coversion
-from config import global_config
+from SteelDemandAnalysis.model.com_mod import data_partitioning, model_method
+from SteelDemandAnalysis.model.LinearRegression import LinearRegression_model
+from SteelDemandAnalysis.model.DecisionTreeRegression import DecisionTreeRegressor_model
+from SteelDemandAnalysis.model.SVMRegression import SVMRegression_model
+from SteelDemandAnalysis.model.RandomForestRegression import RandomForestRegression_model
+from SteelDemandAnalysis.model.AdaBoostRegression import AdaBoostRegression_model
+from SteelDemandAnalysis.model.GBRTRegression import GBRTRegression_model
+from SteelDemandAnalysis.model.XGBoostRegression import XGBoostRegression_model
+from SteelDemandAnalysis.model.BaggingRegression import BaggingRegression_model
+from SteelDemandAnalysis.data_process.feature import feature_correlation_analysis, data_coversion
+from SteelDemandAnalysis.config import global_config
 import datetime
 from dateutil.relativedelta import relativedelta
 import logging
-from config import log
+from SteelDemandAnalysis.config import log
 
 max_pre_months = 120
 min_pre_months = 36
@@ -27,7 +27,7 @@ def initial_data(data_type=1):
     path_config = global_config.PathConfig()
     param_config = global_config.ParamConfig()
     param_config.data_type = data_type  # 数据类型
-    param_config.predict_period = 1  # 预测期为
+    param_config.predict_period = 1  # 预测期
     feature_correlation_analysis.FeatureCorrelationAnalysis(path_config, param_config).feature_correlation_analysis()
     data_coversion.DataCoversion(path_config, param_config).data_coversion()
 
@@ -90,7 +90,7 @@ def model_with_pre_months(train_model, pre_months):
 
 
 if __name__ == '__main__':
-    initial_data(2)
+    initial_data(3)
     train_model_list = [LinearRegression_model.MyLinearRegression().linear_regression,
                         DecisionTreeRegressor_model.MyDecisionTreeRegression().decision_tree_regression,
                         SVMRegression_model.MySVMRegression().svm_regression,

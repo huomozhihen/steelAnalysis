@@ -3,7 +3,7 @@ Time： 2019-7-11
 Description： 线性回归
 """
 
-from model.com_mod import model_method, data_partitioning
+from SteelDemandAnalysis.model.com_mod import model_method, data_partitioning
 from sklearn import linear_model
 
 

@@ -7,7 +7,7 @@ Description： 差分自回归移动平均模型
 from statsmodels.tsa.arima_model import ARIMA
 from statsmodels.tsa.stattools import adfuller
 from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
-from data_process.steel_demand_data import steel_demand_data_initial
+from SteelDemandAnalysis.data_process.steel_demand_data import steel_demand_data_initial
 from sklearn.metrics import mean_squared_error
 from matplotlib import pyplot as plt
 import pandas as pd

@@ -3,7 +3,7 @@ Time: 2019-7-11
 Description: 数据集划分
 """
 
-from config import global_config
+from SteelDemandAnalysis.config import global_config
 import pandas as pd
 import datetime
 

@@ -5,7 +5,7 @@ Description: 数据集转换
 
 import pandas as pd
 import datetime
-from config import global_config
+from SteelDemandAnalysis.config import global_config
 from sklearn import preprocessing
 
 
